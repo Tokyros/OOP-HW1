@@ -20,7 +20,7 @@ public class Bass extends StringInstrument {
     private void setFretless(Scanner scanner) {
         try {
             setFretless(scanner.nextBoolean());
-        } catch (InputMismatchException ex){
+        } catch (InputMismatchException ex) {
             throw new InstrumentCreationException("Whether a bass is fretless or not is boolean, any other string than \"True\" or \"False\" is not acceptable", ex);
         }
     }
@@ -35,7 +35,8 @@ public class Bass extends StringInstrument {
 
     @Override
     public void setNumOfStrings(int numOfStrings) {
-        if (MIN_NUM_OF_STRING > numOfStrings || numOfStrings > MAX_NUM_OF_STRING) throw new InstrumentCreationException(String.format("Bass number of strings is a number between %d and %d", MIN_NUM_OF_STRING, MAX_NUM_OF_STRING));
+        if (MIN_NUM_OF_STRING > numOfStrings || numOfStrings > MAX_NUM_OF_STRING)
+            throw new InstrumentCreationException(String.format("Bass number of strings is a number between %d and %d", MIN_NUM_OF_STRING, MAX_NUM_OF_STRING));
         super.setNumOfStrings(numOfStrings);
     }
 

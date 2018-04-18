@@ -42,7 +42,7 @@ public class Guitar extends StringInstrument {
 
     @Override
     public void setNumOfStrings(int numOfStrings) {
-        if (guitarType != null){
+        if (guitarType != null) {
             //If we have a guitarType set, we make sure the type matches the new number of strings
             validateNumberOfStrings(numOfStrings);
         }
@@ -51,7 +51,7 @@ public class Guitar extends StringInstrument {
 
     //Throws an exception if the guitarType and numOfStrings match. if the guitarType is not set, numOfStrings should just be positive;
     private void validateNumberOfStrings(int numOfStrings) {
-        switch (guitarType){
+        switch (guitarType) {
             case ELECTRIC:
                 if (!(MINIMUM_ELECTRIC_STRING_NUM <= numOfStrings && numOfStrings <= MAXIMUM_ELECTRIC_STRING_NUM)) {
                     throw new IllegalArgumentException(String.format("%s number of strings is a number between %d and %d", guitarType, MINIMUM_ELECTRIC_STRING_NUM, MAXIMUM_ELECTRIC_STRING_NUM));
@@ -59,7 +59,8 @@ public class Guitar extends StringInstrument {
                 break;
             case CLASSIC:
             case ACOUSTIC:
-                if (numOfStrings != CLASSIC_ACOUSTIC_STRING_NUM) throw new IllegalArgumentException(String.format("%s Guitars have %d strings not %d", guitarType, CLASSIC_ACOUSTIC_STRING_NUM, numOfStrings));
+                if (numOfStrings != CLASSIC_ACOUSTIC_STRING_NUM)
+                    throw new IllegalArgumentException(String.format("%s Guitars have %d strings not %d", guitarType, CLASSIC_ACOUSTIC_STRING_NUM, numOfStrings));
                 break;
         }
 
@@ -75,7 +76,7 @@ public class Guitar extends StringInstrument {
         return super.toString() + " Type: " + guitarType;
     }
 
-    private boolean isTypeOfGuitarValid(String guitarType){
+    private boolean isTypeOfGuitarValid(String guitarType) {
         for (String possibleGuitarType : this.possibleGuitarTypes) {
             if (possibleGuitarType.equals(guitarType)) return true;
         }

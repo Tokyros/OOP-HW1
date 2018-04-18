@@ -27,7 +27,7 @@ public class WindInstrument extends AfekaInstrument {
         this.material = material;
     }
 
-    protected boolean validateMaterial(String material) throws IllegalArgumentException{
+    protected boolean validateMaterial(String material) throws IllegalArgumentException {
         for (String allowedMaterial : allowedMaterials) {
             if (allowedMaterial.equals(material)) return true;
         }

@@ -1,8 +1,7 @@
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class StringInstrument extends AfekaInstrument{
+public class StringInstrument extends AfekaInstrument {
 
     private int numOfStrings = 6;
 
@@ -16,7 +15,7 @@ public class StringInstrument extends AfekaInstrument{
         try {
             setNumOfStrings(scanner.nextInt());
             scanner.nextLine();
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             throw new InstrumentCreationException("Expected int for number of string and got something else", e);
         }
     }
