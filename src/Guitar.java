@@ -41,7 +41,8 @@ public class Guitar extends StringInstrument {
     }
 
     //Throws an exception if the guitarType and numOfStrings match. if the guitarType is not set, numOfStrings should just be positive;
-    protected void validateNumberOfStrings(int numOfStrings) {
+    @Override
+    protected void validateNumberOfStrings(int numOfStrings){
         //If a guitarType has yet to be specified, we do not add extra validation logic for Guitar class
         if (guitarType == null) {
             super.validateNumberOfStrings(numOfStrings);
