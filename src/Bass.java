@@ -34,10 +34,9 @@ public class Bass extends StringInstrument {
     }
 
     @Override
-    public void setNumOfStrings(int numOfStrings) {
+    protected void validateNumberOfStrings(int numOfStrings) {
         if (MIN_NUM_OF_STRING > numOfStrings || numOfStrings > MAX_NUM_OF_STRING)
             throw new InstrumentCreationException(String.format("Bass number of strings is a number between %d and %d", MIN_NUM_OF_STRING, MAX_NUM_OF_STRING));
-        super.setNumOfStrings(numOfStrings);
     }
 
     @Override

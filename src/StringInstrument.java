@@ -25,8 +25,12 @@ public class StringInstrument extends AfekaInstrument {
     }
 
     public void setNumOfStrings(int numOfStrings) {
-        if (numOfStrings <= 0) throw new IllegalArgumentException("Number of strings must be positive");
+        validateNumberOfStrings(numOfStrings);
         this.numOfStrings = numOfStrings;
+    }
+
+    protected void validateNumberOfStrings(int numOfStrings) throws IllegalArgumentException {
+        if (numOfStrings <= 0) throw new IllegalArgumentException("Number of strings must be positive");
     }
 
     @Override

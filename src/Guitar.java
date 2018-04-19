@@ -40,17 +40,14 @@ public class Guitar extends StringInstrument {
         return String.format("Guitar type must be one of - %s", getCommaDelimitedStringFromArray(possibleGuitarTypes));
     }
 
-    @Override
-    public void setNumOfStrings(int numOfStrings) {
-        if (guitarType != null) {
-            //If we have a guitarType set, we make sure the type matches the new number of strings
-            validateNumberOfStrings(numOfStrings);
-        }
-        super.setNumOfStrings(numOfStrings);
-    }
-
     //Throws an exception if the guitarType and numOfStrings match. if the guitarType is not set, numOfStrings should just be positive;
-    private void validateNumberOfStrings(int numOfStrings) {
+    protected void validateNumberOfStrings(int numOfStrings) {
+        //If a guitarType has yet to be specified, we do not add extra validation logic for Guitar class
+        if (guitarType == null) {
+            super.validateNumberOfStrings(numOfStrings);
+            return;
+        }
+
         switch (guitarType) {
             case ELECTRIC:
                 if (!(MINIMUM_ELECTRIC_STRING_NUM <= numOfStrings && numOfStrings <= MAXIMUM_ELECTRIC_STRING_NUM)) {
